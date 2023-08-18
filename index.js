@@ -7,8 +7,18 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 //app.set('views', './views');
 
+app.use(express.urlencoded({ extended: true }));
+
+const messages = []
+
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {messages});
+});
+
+app.post('/message', (req,res) => {
+    const messageText = req.body.messageText
+    messages.push(messageText)
+    res.redirect('/')
 });
 
 app.get('/time', (req, res) => {

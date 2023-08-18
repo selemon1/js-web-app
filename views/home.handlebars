@@ -1,1 +1,15 @@
-<h1>Example App: HomePage</h1>
+<h1>Express: Chat Bord</h1>
+
+<ul>
+    <label style="color:red">This Is a Chat Bord</label>
+    {{#each messages}}
+    <li style="font-style:italic">{{this}}</li>
+    {{/each}}
+</ul>
+
+<form action="/message" method="post">
+    <lable for="messageText">Message:</lable>
+    <input style="font-style:italic" type="text" id="messageText" name="messageText" />
+    <button type="submit">Send</button>
+    <p>(look your message above)</p>
+</form>
